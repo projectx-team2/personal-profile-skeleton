@@ -1,3 +1,8 @@
+@font-face {
+    font-family: roboto;
+    src: url('./../fonts/Roboto-Black.ttf');
+}
+
 nav {
     display: flex;
     flex-direction: row;
@@ -22,6 +27,7 @@ ul {
 body {
     background-image: url('./../img/artem-labunsky-zVKAExjrloM-unsplash.jpg');
     background-size: cover;
+    font-family: roboto;
     background-size: cover;
     background-repeat: no-repeat;
 }
