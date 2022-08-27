@@ -1,0 +1,6 @@
+{
+    "name": "Thabani",
+    "age": 25,
+    "isActive": true,
+    "permissions": ["1", "2", "3"]
+}

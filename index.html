@@ -11,53 +11,51 @@
 </head>
 
 <body>
-    <h1>Lorem Ipsum</h1>
 
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis
-        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <div>
-        Suspendisse potenti nullam ac tortor vitae purus. Elit ut aliquam purus sit. Non odio euismod lacinia at quis
-        risus.
-        Dictum fusce ut placerat orci nulla pellentesque. Porttitor lacus luctus accumsan tortor. Posuere ac ut
-        consequat semper
-        viverra nam libero justo laoreet. Urna duis convallis convallis tellus id. Quis eleifend quam adipiscing vitae
-        proin
-        sagittis nisl. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. Ullamcorper a lacus
-        vestibulum
-        sed arcu non odio euismod. Leo urna molestie at elementum eu facilisis sed odio. Amet volutpat consequat mauris
-        nunc
-        congue nisi vitae suscipit.
-    </div>
+    <button onclick="addName()">Add Name</button>
+    <table id="nameData">
+        <thead>
+            <th>Name</th>
+            <th>Action</th>
+        </thead>
+    </table>
+    <script>
+        var id = 0;
+        function getData(tagId) {
+            var information = document.getElementById(tagId);
+            return information.innerText;
+        }
 
-    <ul>
-        <li>Consequat nisl vel pretium lectus.
-        </li>
-        <li>Risus quis varius quam quisque id diam. </li>
-        <li>Ac orci phasellus egestas tellus rutrum
-            tellus pellentesque eu. </li>
-        <li>Feugiat sed lectus vestibulum mattis ullamcorper. </li>
-        <li>Tellus rutrum tellus pellentesque eu tincidunt
-            tortor aliquam. </li>
-        <li>Pretium nibh ipsum consequat nisl vel pretium lectus. </li>
-        <li>Condimentum lacinia quis vel eros donec. </li>
-        <li>Dictumst
-            vestibulum rhoncus est pellentesque elit ullamcorper.</li>
-        <li>Magna etiam tempor orci eu lobortis elementum nibh tellus
-            molestie. </li>
-        <li>Ac turpis egestas sed tempus urna et pharetra. </li>
-        <li>Et leo duis ut diam quam nulla. </li>
-        <li>In iaculis nunc sed augue lacus
-            viverra vitae congue eu.</li>
-        <li></li>
-    </ul>
+        function viewData(id) {
+            alert(getData(id));
+        }
 
-    <a href="">End</a>
+        function addName() {
+            var name = prompt("please enter a name?");
+            if (name !== '' && name != null) {
+                id++;
+                addDataToTable(name, id);
+            }
+        }
+        
+        function addDataToTable(name, recordId) {
+            var table = document.getElementById('nameData');
+            var tableRow = document.createElement('tr');
+            var recordData = document.createElement('td');
+            recordData.id = id;
+            recordData.innerHTML = name;
+            tableRow.appendChild(recordData);
+            var recordAction = document.createElement('td');
+            var button = document.createElement('button');
+            button.innerText = 'View Data';
+            button.addEventListener('click', function handleClick(event) {
+                viewData(recordId);
+            });
+            recordAction.appendChild(button);
+            tableRow.appendChild(recordAction);
+            table.appendChild(tableRow);
+        }
+    </script>
 </body>
 
 
